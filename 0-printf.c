@@ -1,7 +1,10 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdlib.h>
+
 
 /**
- * _printf - function to print to stdout 
+ * _printf - function to print to stdout
  * @format: first var
  * Return: chars
  */
