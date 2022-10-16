@@ -7,5 +7,11 @@
 int _printf(const char *format, ...);
 
 
+typedef struct funcs
+{
+	char letter;
+	int(*func)(va_list ap);
+}func;
+
 
 #endif

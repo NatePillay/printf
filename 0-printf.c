@@ -12,11 +12,11 @@
 int _printf(const char *format, ...)
 {
 	int print_char;
-	conver_t f_list[] = {
+	func specifiers[]= {
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
-		{NULL, NULL}
+		{'\0', NULL}
 	};
 
 	va_list arg_list;
