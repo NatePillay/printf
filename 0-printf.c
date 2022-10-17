@@ -16,8 +16,7 @@ int (*get_func(const char c))(va_list)
 	func specifiers[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_percent},
-		{NULL, NULL}
+		{"%", print_percent}
 	};
 
 
@@ -48,7 +47,7 @@ int _printf(const char *format, ...)
 		if (format[i + 1] == '%')
 		{
 			if (format[i + 1] != '\0')
-				func = getfunc(formal[i + 1]);
+				func = get_func(formal[i + 1]);
 			if (func == NULL)
 			{
 				_putchar(format[i]);
@@ -61,12 +60,14 @@ int _printf(const char *format, ...)
 				i += 2;
 				continue;
 			}
+		}
 		else
 		{
 			_putchar(format[i]);
 			sum++;
 			i++;
 		}
+	}
 	va_end(arg_list);
 	return (sum);
 }
