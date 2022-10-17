@@ -20,7 +20,7 @@ int (*get_func(const char c))(va_list)
 		{"%", print_percent}
 	};
 
-	while (i < 14)
+	while (i < 3)
 	{
 		if (c == specifier[i].c[0])
 		{

@@ -12,11 +12,12 @@ int _putchar(char c);
 int _puts(char *str, int ascii);
 char *convert_base(unsigned long nb, unsigned int base, int upper);
 int convert_alpha_numeric(int nb, int upper);
+int (*get_func(const char c))(va_list)
 
 typedef struct flags_print
 {
 	char *c;
-	int(*f)(va_list arg_list);
+	int(*f)(va_list);
 }flag_p;
 
 
