@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include "main.h"
 
 /**
@@ -37,7 +38,7 @@ int print_string(va_list arg_list)
 		sum += puts("(null)", 0);
 		return (sum);
 	}
-	return (_puts(arg, 0));
+	return (_puts(arg, 1));
 }
 
 /**

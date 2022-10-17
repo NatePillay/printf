@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 
 /**
@@ -11,16 +12,23 @@
 
 int (*get_func(const char c))(va_list)
 {
-	int i;
+	int i = 0;
 
-	conver_t specifier[] = {
+	flag_p specifier[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent}
 	};
 
-
-
+	while (i < 14)
+	{
+		if (c == specifier[i].c[0])
+		{
+			return (specifier[i].f);
+		}
+		i++;
+	}
+	return (NULL);
 }
 
 
@@ -36,7 +44,7 @@ int _printf(const char *format, ...)
 	va_list arg_list;
 	int sum = 0, i = 0;
 
-	int (*specifier)();
+	int (*func)();
 
 	if (format[0] == '%' && format[1] == '\0')
 		return (-1);
@@ -47,8 +55,8 @@ int _printf(const char *format, ...)
 		if (format[i + 1] == '%')
 		{
 			if (format[i] != '\0')
-				specifier = get_func(format[i + 1]);
-			if (specifier == NULL)
+				func = get_func(format[i + 1]);
+			if (func == NULL)
 			{
 				_putchar(format[i]);
 				sum++;
@@ -56,7 +64,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				sum += specifier(arg_list);
+				sum += func(arg_list);
 				i += 2;
 				continue;
 			}
