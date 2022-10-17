@@ -35,7 +35,7 @@ int print_string(va_list arg_list)
 
 	if (!arg)
 	{
-		sum += puts("(null)", 0);
+		sum += _puts("(null)", 0);
 		return (sum);
 	}
 	return (_puts(arg, 1));
