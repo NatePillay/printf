@@ -11,6 +11,7 @@ int print_percent(va_list arg_list __attribute__((unused)));
 int _putchar(char c);
 int _puts(char *str, int ascii);
 char *convert_base(unsigned long nb, unsigned int base, int upper);
+int convert_alpha_numeric(int nb, int upper);
 
 typedef struct flags_print
 {
