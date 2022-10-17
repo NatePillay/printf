@@ -4,24 +4,39 @@
 
 
 /**
+ * get_func - choose the right func from list
+ * @c: char to check
+ * Return: pointer to function
+ */
+
+int (*get_func(const char c))(va_list)
+{
+	int i;
+
+	func specifiers[]= {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{NULL, NULL}
+	};
+
+
+
+}
+
+
+/**
  * _printf - function to print to stdout
  * @format: first var
  * Return: chars
  */
 
+
 int _printf(const char *format, ...)
 {
-	int print_char;
-	func specifiers[]= {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_percent},
-		{'\0', NULL}
-	};
-
 	va_list arg_list;
 
-	if (format == NULL)
+	if (format == NULL && format[i] = '\0')
 	{
 		return (-1);
 	}
