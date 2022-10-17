@@ -9,6 +9,8 @@ int print_char(va_list arg_list);
 int print_string(va_list arg_list);
 int print_percent(va_list arg_list __attribute__((unused)));
 int _putchar(char c);
+int _puts(char *str, int ascii);
+char *convert_base(unsigned long nb, unsigned int base, int upper);
 
 typedef struct flags_print
 {
