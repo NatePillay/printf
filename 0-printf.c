@@ -13,7 +13,7 @@ int (*get_func(const char c))(va_list)
 {
 	int i;
 
-	func specifiers[] = {
+	conver_t specifier[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent}
@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 	va_list arg_list;
 	int sum = 0, i = 0;
 
-	int (*func)();
+	int (*specifier)();
 
 	if (format[0] == '%' && format[1] == '\0')
 		return (-1);
@@ -46,9 +46,9 @@ int _printf(const char *format, ...)
 	{
 		if (format[i + 1] == '%')
 		{
-			if (format[i + 1] != '\0')
-				func = get_func(format[i + 1]);
-			if (func == NULL)
+			if (format[i] != '\0')
+				specifier = get_func(format[i + 1]);
+			if (specifier == NULL)
 			{
 				_putchar(format[i]);
 				sum++;
@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				sum += func(arg_list);
+				sum += specifier(arg_list);
 				i += 2;
 				continue;
 			}
