@@ -14,11 +14,18 @@ char *convert_base(unsigned long nb, unsigned int base, int upper);
 int convert_alpha_numeric(int nb, int upper);
 int (*get_func(const char c))(va_list);
 
+/**
+ * struct flags_print - struct conversion to func
+ * @c: flag string
+ * @f: pointer to func
+ */
+
 typedef struct flags_print
 {
 	char *c;
-	int(*f)(va_list);
-}flag_p;
+	int (*f)(va_list);
+
+} flag_p;
 
 
 #endif
