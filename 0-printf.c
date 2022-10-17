@@ -47,23 +47,23 @@ int _printf(const char *format, ...)
 		if (format[i + 1] == '%')
 		{
 			if (format[i + 1] != '\0')
-				func = get_func(formal[i + 1]);
+				func = get_func(format[i + 1]);
 			if (func == NULL)
 			{
-				_putchar(format[i]);
+				putchar(format[i]);
 				sum++;
 				i++;
 			}
 			else
 			{
-				sum += func(ap);
+				sum += func(arg_list);
 				i += 2;
 				continue;
 			}
 		}
 		else
 		{
-			_putchar(format[i]);
+			putchar(format[i]);
 			sum++;
 			i++;
 		}
