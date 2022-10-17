@@ -50,4 +50,5 @@ int print_string(va_list arg_list)
 int print_percent(va_list arg_list __attribute__((unused)))
 {
 	return (_putchar('%'));
-i}
+}
+
