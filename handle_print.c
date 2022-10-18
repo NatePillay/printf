@@ -27,7 +27,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 			return (fmt_types[i].fn(list, buffer, flags, width, precision, size));
 
 	if (fmt_types[i].fmt == '\0')
-i	{
+	{
 		if (fmt[*ind] == '\0')
 			return (-1);
 		unknow_len += write(1, "%%", 1);
