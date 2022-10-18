@@ -17,10 +17,12 @@ int (*get_func(const char c))(va_list)
 	flag_p specifier[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_percent}
+		{"%", print_percent},
+		{"d", print_nbr},
+		{"i", print_nbr}
 	};
 
-	while (i < 3)
+	while (i < 5)
 	{
 		if (c == specifier[i].c[0])
 		{
