@@ -26,7 +26,7 @@ int print_number(int n)
 
 	i = n;
 
-	if (i < 0)
+	if (n < 0)
 	{
 		_putchar('-');
 		count++;
