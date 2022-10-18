@@ -35,14 +35,14 @@ int print_number(int n)
 
 	if (i > 0 && i < 9)
 	{
-		count  += _putchar(i + 48);
+		count  += _putchar(i + '0');
 		count++;
 	}
 
 	if (i > 9)
 	{
-		_putchar((i / 10) + 48);
-		_putchar((i % 10) + 48);
+		count = print_number((i / 10) + 1);
+		_putchar((i % 10) + '0');
 		return (count);
 	}
 	return (0);
